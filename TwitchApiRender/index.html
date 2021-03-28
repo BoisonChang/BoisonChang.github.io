@@ -1,0 +1,348 @@
+<!DOCOTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Twitch Top Games</title>
+  <meta name ="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<style>
+  .navbar {
+    box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+    background: white; 
+  }
+
+  .navbar .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding-top: 20px;
+    padding-bottom: 8px;
+  }
+
+  .navbar__site-name {
+    font-size: 25px;
+    color: #000000;
+  }
+
+
+  .navbar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 14px;
+  }
+
+  .navbar__list li {
+    margin-left: 3px;
+    border-radius: 8px;
+    transition: background 0.1s ease-in;
+  }
+
+  .navbar__list li.active,  
+  .navbar__list li:hover {
+    background: #100d14;
+  }
+
+  .navbar__list li.active a, 
+  .navbar__list li:hover a {
+    color: White;
+  }
+
+  .navbar__list li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px 20px;
+    display: block;
+  }
+
+  .wrapper {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .wrapper2 {
+    margin: 0 auto;
+    background: #000000;
+    z-index: 2;  
+  }
+
+
+
+  .page {
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .page__name {
+    margin-bottom: 20px;
+  }
+
+  .page__desc {
+    font-size: 20px;
+  } 
+
+
+  p, h1 {
+    margin: 0;
+  }
+
+
+  .games {
+    margin: 0 auto;
+    max-width: 1200px;
+    background: black;
+    padding-bottom: 50px;
+  }
+
+
+  .games__row {
+    display: flex;
+  }
+
+  .game {
+    height: 250px;
+    width: 100%;
+    margin: 10px;
+    border: solid 1px white;
+    background: #333334; 
+  }
+
+  .game__pic {
+    width: 100%;
+  }
+
+  .game__pic:hover {
+    transform: scale(1.05);
+  }
+
+  .game_info {
+    display: flex;
+    position: relative;
+  }
+
+  .game__icon {
+    width: 30%;
+    margin: 3px;
+    border-radius: 50%;
+  }
+
+  .game__detail {
+    display: inline-block;
+    
+  }
+
+  .gmae__detail__name {
+    color: white;
+
+    font-size: 20px;
+    padding: 5px;
+    position: absolute;
+    top: 5;
+  }
+
+  .gmae__detail__aurthor {
+    color: white;
+    padding: 5px;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+  }
+
+  @media(max-width: 768px){
+    .navbar .wrapper {
+      height: 120px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .navbar__list {
+      display: flex;
+      width: 100%;
+    }
+
+
+    .navbar__list li {
+      flex: 1;
+      margin-left: 0;
+      border-radius: 0;
+      text-align: center;
+    }
+
+    .navbar__site-name {
+      margin-top: 10px;
+    }
+  }
+    
+    
+</style>
+
+<body>
+  <nav class="navbar">
+  	<div class="wrapper">
+	  	<div class="navbar__site-name" >
+	  		Twitch Top Games
+	  	</div>
+	  	<ul class="navbar__list">
+	  	  <li><a class="game__top1" href="#"></a></li>
+	  	  <li><a class="game__top2" href="#"></a></li>
+	  	  <li><a class="game__top3" href="#"></a></li>
+	  	  <li><a class="game__top4" href="#"></a></li>
+        <li><a class="game__top5" href="#"></a></li>
+	  	</ul>
+	</div>
+  </nav>
+
+  <div class="wrapper2">
+    <div class="page">
+      <h1 class="page__name">League of Legends</h1>
+      <p class="page__desc">Top 20 popular live streams sorted by current viewers</p>
+    </div>
+
+    <div class="games">
+      <div class="games__row">
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+      </div>
+   
+
+
+      <div class="games__row">
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+      </div>
+
+
+
+      <div class="games__row">
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+      </div>
+
+      <div class="games__row">
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+      </div>
+
+      <div class="games__row">
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+        <div class="game"></div>
+      </div>
+    </div>
+ 
+
+  </div>
+	<script>
+    const request = new XMLHttpRequest();
+    const baseUrl = 'https://api.twitch.tv/kraken/streams/';
+    const errorMessage = '系統不穩定，再試一次';
+    const gameElement = document.querySelectorAll('.game');
+
+    function limitlenghth(str) {
+      let newstr = '';
+      if (str.length > 16) {
+        for (let i = 0; i <= 14; i += 1) {
+          newstr += str[i];
+        }
+        newstr += '...';
+      } else {
+        newstr = str;
+      }
+      return newstr;
+    }
+
+    function findnone(str) {
+      if (str === '' || str === undefined) {
+        // eslint-disable-next-line
+        str = 'None';
+      }
+      return str;
+    }
+
+    function top20game(whichgame) {
+      request.addEventListener('load', () => {
+        if (request.status >= 200 && request.status <= 400) {
+          const response = request.responseText;
+          const json = JSON.parse(response);
+          for (let i = 0; i < json.streams.length; i += 1) {
+            if (i < json.streams.length) {
+              const gamePic = json.streams[i].preview.medium;
+              const gameIcon = json.streams[i].channel.logo;
+              const gameDesc = findnone(limitlenghth(json.streams[i].channel.status));
+              const gameAruthor = findnone(json.streams[i].channel.name);
+              const gameurl = json.streams[i].channel.url;
+              gameElement[i].innerHTML = `<a href="${gameurl}"><img src="${gamePic}" class="game__pic"></a>
+                  <div class="game_info">
+                    <img src="${gameIcon}" class="game__icon">
+                    <div class="gmae__detail">
+                      <div class="gmae__detail__name">${gameDesc}</div>
+                      <div class="gmae__detail__aurthor">${gameAruthor}</div>
+                    </div>`;
+            }
+          }
+        } else {
+          // eslint-disable-next-line
+          alert(errorMessage);
+        }
+      });
+      request.onerror = () => {
+        // eslint-disable-next-line
+        alert(errorMessage);
+      };
+      request.open('GET', `${baseUrl}?game=${whichgame}&limit=20`, true);
+      request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json');
+      request.setRequestHeader('Client-ID', '82f9xqhhwqtobtz3giujrfjjen0tfi');
+      request.send();
+    }
+
+    function getGames() {
+      const request2 = new XMLHttpRequest();
+      let gametype = '';
+      request2.addEventListener('load', () => {
+        const response = request2.responseText;
+        const json = JSON.parse(response);
+        gametype = `${encodeURIComponent(json.top[0].game.name)}`;
+        top20game(gametype);
+        document.querySelector('.page__name').innerText = `${json.top[0].game.name}`;
+        for (let i = 0; i < 5; i += 1) {
+          document.querySelector(`.game__top${i + 1}`).innerText = `${json.top[i].game.name}`;
+          // eslint-disable-next-line
+          document.querySelector(`.game__top${i + 1}`).addEventListener('click', () => {
+            gametype = `${encodeURIComponent(json.top[i].game.name)}`;
+            top20game(gametype);
+            document.querySelector('.page__name').innerText = `${json.top[i].game.name}`;
+          });
+        }
+      });
+      request2.open('GET', 'https://api.twitch.tv/kraken/games/top?limit=5', true);
+      request2.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json');
+      request2.setRequestHeader('Client-ID', '82f9xqhhwqtobtz3giujrfjjen0tfi');
+      request2.send();
+    }
+
+    getGames();
+  </script>
+</body>
+</html>
