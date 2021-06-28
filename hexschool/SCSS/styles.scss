@@ -59,12 +59,12 @@ table {
 *,*:before,*:after {
 	box-sizing: border-box;
 }
-
+//body 內的最外層容器樣式
 .wrap {
 	margin: 0 auto;
 	width: 1024px;
 }
-
+//以下為 .header 內之元素樣式，避免巢狀結構過大分開來寫
 .socialMedias {
     display: flex;
     justify-content: flex-end;
@@ -88,7 +88,7 @@ table {
 		color: #08b0de;
 	}
 }
-
+//以下為 .content 內之元素樣式，避免巢狀結構過大分開來寫
 .menu {
 	display: flex;
 	justify-content: space-between;
@@ -217,7 +217,7 @@ table {
 .footer {
 	padding-bottom: 50px;
 }
-
+//以下為 .footer 內之元素樣式，避免巢狀結構過大分開來寫
 .callToAction {
 	color: white;
 	padding: 30px 20px;
